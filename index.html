@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://QicongXie.github.io/end2endvc/ -->
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>LLVC</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="TODO: title">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://KoeAI.github.io/llvc-demo/">
+<meta property="og:url" content="https://KoeAI.github.io/llvc-demo/">
+<meta name="twitter:card" content="summary">
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+    <section class="page-header">
+      
+      
+    </section>
+
+<section class="main-content">
+      <h1 id=""><center>Low-latency Real-time Voice Conversion on CPU</center></h1>
+
+<center> Konstantine Sadov, Matthew Hutter, Asara Near </center>
+<center> Koe AI </center>
+
+<h2>0. Contents</h2>
+<ol>
+  <li><a href="#abstract">Abstract</a></li>
+  <li><a href="#Comparison">Demos -- Voice Conversion</a></li>
+</ol>
+
+<br><br>
+<h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
+<p> 
+  We adapt the architecture of the real-time streaming sound extraction network Waveformer for the purpose of low-latency voice conversion in real time. We achieve this using knowledge distillation by training a larger neural network, RVC, to perform high-quality voice conversion, afterwards using pairs of input voices and their converted waveforms to train a smaller network with a synthetic parallel dataset. This smaller network is combined with a multi-period discriminator derived from VITS to form a generative adversarial network. The resulting network is able to convert voices in an any-to-one manner while streaming with a latency of under 20ms at 16KHz, running nearly 2.8x faster than real-time on a consumer CPU.
+
+<br><br>
+
+
+<h2>2. Demos -- Voice Conversion<a name="Comparison"></a></h2>
+<h3>some h3 placeholder description of the demo</h3>
+
+<table>
+  <tbody>
+    <tr>
+      <td style="text-align: center; width: 150px;" rowspan=2><strong>Target Speaker<strong></td>
+      <td style="text-align: center; width: 150px;" rowspan=2><strong>Source speech<strong></td>
+      <td style="text-align: center; width: 150px;" colspan=5><strong>Method<strong></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 150px;" rowspan=1><strong>QuickVC<strong></td>
+      <td style="text-align: center; width: 150px;" rowspan=1><strong>RVC<strong></td>
+      <td style="text-align: center; width: 150px;" rowspan=1><strong>LLVC<strong></td>
+      <td style="text-align: center; width: 150px;" rowspan=1><strong>LLVC-HFG<strong></td>
+      <td style="text-align: center; width: 150px;" rowspan=1><strong>LLVC-NC<strong></td>
+    </tr>
+
+    <tr>
+        <td style="text-align: center; width: 150px;" rowspan=4><strong>Our gal<strong><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/gt/untitled.mp3"></td>
+        <td style="text-align: center"><strong>61-70968-0000<strong></strong><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/test/61-70968-0000.mp3"></audio></td>
+        <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/quickvc/61-70968-0000.mp3"></audio></td>
+        <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/rvc/61-70968-0000.mp3"></audio></td>
+        <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc/61-70968-0000.mp3"></audio></td>
+        <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_hfg/61-70968-0000.mp3"></audio></td>
+        <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_nc/61-70968-0000.mp3"></audio></td>
+    </tr>
+
+    <tr>
+      <td style="text-align: center"><strong>1089-134686-0000<strong></strong><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/test/1089-134686-0000.mp3"></audio></td>
+      <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/quickvc/1089-134686-0000.mp3"></audio></td>
+      <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/rvc/1089-134686-0000.mp3"></audio></td>
+      <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc/1089-134686-0000.mp3"></audio></td>
+      <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_hfg/1089-134686-0000.mp3"></audio></td>
+      <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_nc/1089-134686-0000.mp3"></audio></td>
+  </tr>
+    
+  <tr>
+    <td style="text-align: center"><strong>1221-135766-000<strong></strong><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/test/1221-135766-0000.mp3"></audio></td>
+    <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/quickvc/1221-135766-0000.mp3"></audio></td>
+    <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/rvc/1221-135766-0000.mp3"></audio></td>
+    <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc/1221-135766-0000.mp3"></audio></td>
+    <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_hfg/1221-135766-0000.mp3"></audio></td>
+    <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_nc/1221-135766-0000.mp3"></audio></td>
+</tr>
+  
+<tr>
+  <td style="text-align: center"><strong>6829-68769-0000<strong></strong><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/test/6829-68769-0000.mp3"></audio></td>
+  <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/quickvc/6829-68769-0000.mp3"></audio></td>
+  <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/rvc/6829-68769-0000.mp3"></audio></td>
+  <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc/6829-68769-0000.mp3"></audio></td>
+  <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_hfg/6829-68769-0000.mp3"></audio></td>
+  <td style="text-align: center"><audio style="width: 150px;" controls="" preload="none" src="mturk_evals/llvc_nc/6829-68769-0000.mp3"></audio></td>
+</tr>
+
+  </tbody>
+
+
+</table>
+
+
+</table>
+      <footer class="site-footer">
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+</body></html>
